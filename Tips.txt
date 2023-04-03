@@ -1,0 +1,295 @@
+//Teclas CTRL + ESPACIO = Ayuda de VSC para Autocompletar
+
+//console.log() Poner un comando en la consola de google. (f12) (se pone un minuscula)
+
+//Se dice DECLARAR la variable = let o const
+//se supone que const es una variable constante, por lo que no deberia cambiar o declararse solo una vez por tipo de variable
+
+//CamelCase = es escribir la variable en minuscula al comienzo y luego mayuscula la primer letra, por ejemplo
+//let nombreDelProfesor = "Juan"
+//Esta variable de tipo texto se llama "String" y se escriben con comillas.
+//Los numeros no llevan comillas y los importes por ej. precios se utiliza el punto(.) y no la coma(,) = 2.50 Y NO USO SIMBOLO DE PESO
+
+/*let nombre = prompt("Ingrese su Nombre");
+let edad = prompt("Ingrese su Edad");
+
+alert("Bienvenido " + nombre + " tu tienes " + edad + " años de edad.")
+alert("Gracias por inscribirte a este lindo curso")*/
+
+/*let modoOscuro = true;
+
+if (modoOscuro) {
+  console.log("modo oscuro activado");
+}
+
+if (modoOscuro == false) {
+  console.log("no esta en modo oscuro");
+}
+
+let x = prompt("Ingrese su Nota");
+
+if (x < 7) {
+  console.log("Te la llevaste a diciembre");
+  alert("Te la llevaste a diciembre");
+} else if (x == 7) {
+  console.log("Aprobaste con lo justo");
+  alert("Aprobaste con lo justo");
+} else {
+  console.log("Pasaste de taquito");
+  alert("Pasaste de taquito");
+}*/
+
+/*let hijo = 10;
+let padre = 18;
+let pagoLaEntrada = true;
+
+if ((pagoLaEntrada == true && padre >= 18) || hijo >= 18) {
+  console.log("PUEDEN ENTRAR");
+} else(console.log("NO PUEDEN ENTRAR")
+)
+
+for(let i = 0; i < 10; i++){
+
+alert(i)
+}*/
+
+/*let tabla = 2;
+let resultado;
+
+for(let i = 1; i <= 10; i++){
+
+  resultado = tabla * i;
+  console.log(tabla + " x " + i + " es igual a " + resultado);
+
+}*/
+
+/*for(let i = 1; i <= 5; i++){
+
+  let ingresarNombre = prompt("ingresar nombre");
+  alert(" Turno n° " + i + " a nombre de " + ingresarNombre)
+  console.log(" Turno n° " + i + " a nombre de " + ingresarNombre);
+}*/
+
+//Ultima clase vista 3. Ciclos/iteraciones minuto 30
+
+/*function Medico(nombre, especialidad, matricula) {
+  this.nombre = nombre;
+  this.especialidad = especialidad;
+  this.matricula = matricula;
+  this.deuda = 500;
+}
+
+const medico1 = new Medico("Guisande", "contador", "40125");
+const medico2 = new Medico("Ranieri", "Todologo", "50501");
+console.log(medico1);
+console.log(medico2);*/
+
+class Medico {
+  constructor(nombre, especialidad, matricula) {
+    this.nombre = nombre;
+    this.especialidad = especialidad;
+    this.matricula = matricula;
+    this.deuda = 500;
+  }
+  hablar() {
+    console.log(
+      "hola, yo soy el Dr. " +
+        this.nombre +
+        " de profesion " +
+        this.especialidad +
+        " y mi matricula es " +
+        this.matricula +
+        " y vine a cancelar mi deuda de " +
+        this.deuda
+    );
+  }
+}
+
+const medico1 = new Medico("Guisande", "contador", "40125");
+const medico2 = new Medico("Ranieri", "Todologo", "50501");
+medico1.hablar();
+medico2.hablar();
+
+//Ejemplo de Join
+let arrayMedicos = ["Guisande", "julian", "Hugo", "Martin", "Juan"];
+
+console.log("Quienes son nuestros medicos: ");
+
+//Ejemplo de IndexOf - Si no encuentra el nombre, muestra -1
+let aux = arrayMedicos.length + ": " + arrayMedicos.join("<>");
+let ubicar = arrayMedicos.indexOf("Ramon");
+
+console.log(aux);
+
+if (ubicar == -1) {
+  console.log("Error: Medico no encontrado");
+} else console.log("Encontrado en la posicion " + ubicar);
+
+console.log(ubicar);
+
+//Ejemplo de For Of con un array de objetos
+const arrayCirculo = [
+  { nombre: "Guisande", edad: 50, cargo: "Jefe" },
+  { nombre: "Julian", edad: 40, cargo: "RRHH" },
+  { nombre: "Hugo", edad: 60, cargo: "Gerente" },
+];
+//La palabra empleado refiere a cada objeto dentro del array
+for (const empleado of arrayCirculo) {
+  console.log(
+    "El empleado " +
+      empleado.nombre +
+      " tiene el cargo de " +
+      empleado.cargo +
+      " y su edad es de años " +
+      empleado.edad
+  );
+}
+
+//COMO COPIAR UN ARRAY PARA ORDENARLO POR EJEMPLO Y SEGUIR TRABAJANDO CON ESE ARRAY ORDENADO / hay otras formas
+//CREO MI ARRAY Y LUEGO ...
+const copiaDeSeguridad = [...array];
+
+array.sort((a, b) => {
+  if (a.nombre > b.nombre) {
+    //compara para ordenarlos (ordena alfabeticamente en este caso)
+    return 1;
+  }
+  if (a.nombre < b.nombre) {
+    return -1;
+  }
+  // a es igual a b
+  return 0;
+});
+
+array = [...copiaDeSeguridad];
+
+const arrayCirculo = [
+  { nombre: "Guisande", matricula: 20100, cargo: "Jefe", edad: 50 },
+  { nombre: "Julian", matricula: 20350, cargo: "RRHH", edad: 40 },
+  { nombre: "Hugo", matricula: 20525, cargo: "Gerente", edad: 60 },
+];
+//Funciones de orden superior:
+//find: busca dentro del array el objeto indicado y lo muestra
+const busqueda = arrayCirculo.find((item) => item.matricula === 20100);
+console.log(busqueda);
+
+//filter: busca dentro del array e incluye los objetos indicados
+const filtrar = arrayCirculo.filter((item) => item.nombre.includes("H"));
+console.log(filtrar);
+const filtro = arrayCirculo.filter((item) => item.matricula <= 20350);
+console.log(filtro);
+
+//some: busca dentro del array el objeto indicado y te dice si esta o no
+const hayAlguno = arrayCirculo.some((item) => item.matricula <= 20350);
+console.log(hayAlguno);
+
+//map: busca dentro del array el objeto indicado y devuelve solo la info solicitada (por ejemplo: cargo)
+const mapa = arrayCirculo.map((item) => item.cargo);
+console.log(mapa);
+
+//reduce: busca dentro del array el objeto indicado y devuelve una suma acumulada. El "0" indica desde donde suma
+const acumulador = arrayCirculo.reduce((acc, item) => acc + item.edad, 0);
+console.log(acumulador);
+
+//sort: busca dentro del array el objeto indicado y devuelve una suma acumulada. El "0" indica desde donde suma
+arrayCirculo.sort((a, b) => {
+  if (a.nombre > b.nombre) {
+    //compara para ordenarlos (ordena alfabeticamente en este caso)
+    return 1;
+  }
+  if (a.nombre < b.nombre) {
+    return -1;
+  }
+  // a es igual a b
+  return 0;
+});
+
+console.log(arrayCirculo);
+
+//Date
+let hoy = new Date();
+console.log(hoy);
+
+/*setTimeout(() => {
+  document.getElementById("saludo").innerHTML = "Guisande Boton";
+}, 2000);*/
+
+/*const arrayMedicos = [
+  { nombre: "Guisande", matricula: 20100, cuotaSocio: 500, planMedico: 8750 },
+  { nombre: "Julian", matricula: 20350, cuotaSocio: 1500, planMedico: 21300 },
+  { nombre: "Hugo", matricula: 20525, cuotaSocio: 1000, planMedico: 13000 },
+];
+
+let busqueda = prompt("Ingrese su matricula Provincial");
+
+if ((busqueda = `${item.matricula}`)) {
+  alert(`Bienvenido Dr/a ${item.nombre}, Su matricula es ${item.matricula}. 
+  Su deuda de Cuota Social es ${item.cuotaSocio}
+  Su deuda de Plan Medico es ${item.planMedico}`);
+} else {
+  alert("Usted no es socio del Circulo Medico San Isidro");
+}*/
+
+class Medicos {
+  constructor(nombre, matricula, cuotaSocio, planMedico) {
+    this.nombre = nombre.toUpperCase();
+    this.matricula = parseFloat(matricula);
+    this.cuotaSocio = cuotaSocio;
+    this.planMedico = planMedico;
+  }
+  busqueda() {
+    this.matricula = prompt("Ingrese su matricula Provincial");
+  }
+}
+//Declaramos un array de productos para almacenar objetos
+const listadoMedicos = [];
+listadoMedicos.push(new Medicos("Guisande", 20100, 500, 8750));
+listadoMedicos.push(new Medicos("fideo", "70"));
+listadoMedicos.push(new Medicos("pan", "50"));
+
+for (const medicos of listadoMedicos) medicos.busqueda();
+
+//Iteramos el array con for...of para modificarlos a todos
+for (const item of listadoMedicos) {
+  let contenedor = document.createElement("div");
+  //Definimos el innerHTML del elemento con una plantilla de texto
+  contenedor.innerHTML = `<h3> Nombre: ${item.nombre}</h3>
+                            <p>  Matricula: ${item.matricula}</p>
+                            <p>  Cuota Socio: ${item.cuotaSocio}</p>
+                            <b> Plan Medico: ${item.planMedico}</b>`;
+  document.body.appendChild(contenedor);
+
+  let busqueda = prompt("Ingrese su matricula Provincial");
+
+  if ((busqueda = `${item.matricula}`)) {
+    alert(`Bienvenido Dr/a ${item.nombre}, Su matricula es ${item.matricula}. 
+    Su deuda de Cuota Social es ${item.cuotaSocio}
+    Su deuda de Plan Medico es ${item.planMedico}`);
+  } else {
+    alert("Usted no es socio del Circulo Medico San Isidro");
+  }
+
+  let boton = document.getElementById("busqueda");
+  boton.addEventListener("click", handleClick);
+
+  function handleClick() {
+    alert(`Bienvenido Dr/a ${item.nombre}, Su matricula es ${item.matricula}. 
+    Su deuda de Cuota Social es ${item.cuotaSocio}
+    Su deuda de Plan Medico es ${item.PlanMedico}`);
+  }
+}
+
+let input = document.getElementById("ingresar-dato");
+input.addEventListener("input", () => {
+  console.log(input.value);
+});
+
+//CODIGO JS
+/*let input1 = document.getElementById("nombre");
+let input2 = document.getElementById("edad");
+input1.onkeyup = () => {
+  console.log("keyUp");
+};
+input2.onkeydown = () => {
+  console.log("keyDown");
+};*/
