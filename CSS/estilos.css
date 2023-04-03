@@ -26,8 +26,10 @@ body{
     background-color: rgb(199, 199, 228);
     margin-left: 20px;
     height: 50px;
+    width: 175px;
     padding: 10px;
     font-size: 20px;
+    text-align: center;
 }
 
 #show {
